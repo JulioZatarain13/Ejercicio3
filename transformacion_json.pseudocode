@@ -1,0 +1,27 @@
+function transformacionJSON(jsonEntrada){
+ 
+
+    //Variables
+    const jsonSalida = {};
+    let nombreCompleto = "";
+
+    //Mapear orderID
+    jsonSalida.ordenId = jsonEntrada.orden.id;
+
+    //Mapear y combinar nombre y apellido
+    if(jsonEntrada.cliente.nombre !== undefined){
+        nombreCompleto = jsonEntrada.cliente.nombre;
+    }
+    if(jsonEntrada.cliente.apellido !== undefined){
+        if(nombreCompleto !== ""){
+            nombreCompleto += " ";
+        }
+        nombreCompleto += jsonEntrada.cliente.apellido;
+    }
+    jsonSalida.customerName = nombreCompleto;
+
+    //Mapear total
+    jsonSalida.total = jsonEntrada.orden.monto;
+
+    return jsonSalida;
+}
