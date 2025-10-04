@@ -3,7 +3,11 @@ function transformacionJSON(jsonEntrada){
     //Validacion del JSON de jsonEntrada
     if(jsonEntrada == null || typeof jsonEntrada !== 'object'){
         console.log("JSON de entrada INVALIDO");
-        return {};
+        return {   
+            orderId: null,
+            customerName: "",
+            total: 0
+        };
     }
 
 
